@@ -1,3 +1,5 @@
+import java.util.HashSet;
+
 public class StudentsInfo {
     String Name;
     String ID;
@@ -6,6 +8,7 @@ public class StudentsInfo {
     double Midterm;
     double Final;
 
+    private static HashSet<String> usedIDs = new HashSet<>();
     public StudentsInfo(String name, String ID, double activities, double practical, double midterm, double aFinal) {
         if (name.matches("[a-zA-Z ]+") && name.charAt(0) != ' ') {
             Name = name;
@@ -18,15 +21,35 @@ public class StudentsInfo {
             throw new IllegalArgumentException("String must be alphabetical characters");
         }
         if(ID.length() == 8 && ID.matches("\\d{7}[a-zA-Z]") || ID.matches("\\d{8}")) {
+            if (usedIDs.contains(ID)) {
+                throw new IllegalArgumentException("Student ID must be unique");
+            }
             this.ID = ID;
+            usedIDs.add(ID);
         }
         else if (ID.length() != 8 || !(ID.matches("\\d{7}[a-zA-Z]") || ID.matches("\\d{8}")) ){
             throw new IllegalArgumentException("Student ID must contain 8 digits where all digits are numeric or last digit only is alphabetic character");
         }
-        Activities = activities;
-        Practical = practical;
-        Midterm = midterm;
-        Final = aFinal;
+        if (activities >= 0 && activities <= 10) {
+            Activities = activities;
+        } else {
+            throw new IllegalArgumentException("Activities grade must be between 0 and 10");
+        }
+        if (practical >= 0 && practical <= 10) {
+            Practical = practical;
+        } else {
+            throw new IllegalArgumentException("Practical grade must be between 0 and 10");
+        }
+        if (midterm >=0 && midterm <=20) {
+            Midterm = midterm;
+        }else {
+            throw new IllegalArgumentException("Midterm grade must be between 0 and 20");
+        }
+        if (aFinal >=0 && aFinal <=60) {
+            Final = aFinal;
+        }else {
+            throw new IllegalArgumentException("Final grade must be between 0 and 60");
+        }
     }
 
     public StudentsInfo() {
@@ -55,7 +78,11 @@ public class StudentsInfo {
 
     public void setID(String ID) {
         if(ID.length() == 8 && ID.matches("\\d{7}[a-zA-Z]") || ID.matches("\\d{8}")) {
+            if (usedIDs.contains(ID)) {
+                throw new IllegalArgumentException("Student ID must be unique");
+            }
             this.ID = ID;
+            usedIDs.add(ID);
         }
         else if (ID.length() != 8 || !(ID.matches("\\d{7}[a-zA-Z]") || ID.matches("\\d{8}")) ){
             throw new IllegalArgumentException("Student ID must contain 8 digits where all digits are numeric or last digit only is alphabetic character");
@@ -67,7 +94,11 @@ public class StudentsInfo {
     }
 
     public void setActivities(double activities) {
-        Activities = activities;
+        if (activities >= 0 && activities <= 10) {
+            Activities = activities;
+        } else {
+            throw new IllegalArgumentException("Activities grade must be between 0 and 10");
+        }
     }
 
     public double getPractical() {
@@ -75,7 +106,11 @@ public class StudentsInfo {
     }
 
     public void setPractical(double practical) {
-        Practical = practical;
+        if (practical >= 0 && practical <= 10) {
+            Practical = practical;
+        } else {
+            throw new IllegalArgumentException("Practical grade must be between 0 and 10");
+        }
     }
 
     public double getMidterm() {
@@ -83,7 +118,11 @@ public class StudentsInfo {
     }
 
     public void setMidterm(double midterm) {
-        Midterm = midterm;
+        if (midterm >=0 && midterm <=20) {
+            Midterm = midterm;
+        }else {
+            throw new IllegalArgumentException("Midterm grade must be between 0 and 20");
+        }
     }
 
     public double getFinal() {
@@ -91,6 +130,10 @@ public class StudentsInfo {
     }
 
     public void setFinal(double aFinal) {
-        Final = aFinal;
+        if (aFinal >=0 && aFinal <=60) {
+            Final = aFinal;
+        }else {
+            throw new IllegalArgumentException("Final grade must be between 0 and 60");
+        }
     }
 }

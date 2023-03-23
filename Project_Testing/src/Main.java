@@ -14,7 +14,7 @@ public class Main {
             System.out.println();
 
             // iterate over the list of objects and print their values
-            for (StudentsInfo object : Course.Students ) {
+            for (StudentsInfo object : Course.Students) {
                 System.out.println("Name: " + object.getName());
                 System.out.println("ID: " + object.getID());
                 System.out.println("Activities: " + object.getActivities());
