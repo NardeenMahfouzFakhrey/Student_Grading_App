@@ -3,10 +3,15 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        String filePath = "C:\\Users\\georg\\Desktop\\Sample.xlsx";
+        String filePath = "Sample.txt";
 
-        try {
-            ArrayList<StudentsInfo> objects = ExcelReader.readExcel(filePath);
+            ArrayList<StudentsInfo> objects = FileReader.readFile(filePath);
+
+
+            System.out.println("Name: " + FileReader.course.getName());
+            System.out.println("ID: " + FileReader.course.getCode());
+            System.out.println("Full Mark: " + FileReader.course.getFullMark());
+            System.out.println();
 
             // iterate over the list of objects and print their values
             for (StudentsInfo object : objects) {
@@ -18,8 +23,5 @@ public class Main {
                 System.out.println("Final: " + object.getFinal());
                 System.out.println();
             }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 }

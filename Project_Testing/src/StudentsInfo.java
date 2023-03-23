@@ -6,6 +6,15 @@ public class StudentsInfo {
     double Midterm;
     double Final;
 
+    public StudentsInfo(String name, double ID, double activities, double practical, double midterm, double aFinal) {
+        Name = name;
+        this.ID = ID;
+        Activities = activities;
+        Practical = practical;
+        Midterm = midterm;
+        Final = aFinal;
+    }
+
     public StudentsInfo() {
     }
 
