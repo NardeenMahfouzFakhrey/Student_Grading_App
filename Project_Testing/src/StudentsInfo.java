@@ -8,7 +8,7 @@ public class StudentsInfo {
     double Midterm;
     double Final;
 
-    private static HashSet<String> usedIDs = new HashSet<>();
+    static HashSet<String> usedIDs = new HashSet<>();
     public StudentsInfo(String name, String ID, double activities, double practical, double midterm, double aFinal) {
         if (name.matches("[a-zA-Z ]+") && name.charAt(0) != ' ') {
             Name = name;

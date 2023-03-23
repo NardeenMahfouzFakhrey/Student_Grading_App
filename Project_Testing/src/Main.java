@@ -13,6 +13,7 @@ public class Main {
             System.out.println("Full Mark: " + Course.getFullMark());
             System.out.println();
             System.out.println("Moura and Bahaa were here");
+            System.out.println();
 
             // iterate over the list of objects and print their values
             for (StudentsInfo object : Course.Students) {

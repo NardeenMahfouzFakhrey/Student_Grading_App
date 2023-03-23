@@ -11,18 +11,19 @@ class StudentsInfoTest {
 
     @BeforeEach
     void setUp(){
+        StudentsInfo.usedIDs.clear();
         student = new StudentsInfo("George", "12345678", 10.0, 10.0, 20.0, 60.0);
     }
-    /*@Test
+    @Test
     void testConstructor() {
-        StudentsInfo student = new StudentsInfo("John Doe", "12345678", 8.5, 9.0, 16.0, 45.0);
+        StudentsInfo student = new StudentsInfo("John Doe", "1234567p", 8.5, 9.0, 16.0, 45.0);
         assertEquals("John Doe", student.getName());
-        assertEquals("12345678", student.getID());
+        assertEquals("1234567p", student.getID());
         assertEquals(8.5, student.getActivities());
         assertEquals(9.0, student.getPractical());
         assertEquals(16.0, student.getMidterm());
         assertEquals(45.0, student.getFinal());
-    }*/
+    }
 
     @Test
     void StudentNameTest(){
@@ -52,6 +53,4 @@ class StudentsInfoTest {
         assertThrows(IllegalArgumentException.class, () -> student.setID("1234s678"));
         assertThrows(IllegalArgumentException.class, () -> student.setID("123456789"));
     }
-
-
 }
