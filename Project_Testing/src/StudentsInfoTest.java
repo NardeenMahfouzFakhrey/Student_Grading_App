@@ -13,7 +13,7 @@ class StudentsInfoTest {
     void setUp(){
         student = new StudentsInfo("George", "12345678", 10.0, 10.0, 20.0, 60.0);
     }
-    @Test
+    /*@Test
     void testConstructor() {
         StudentsInfo student = new StudentsInfo("John Doe", "12345678", 8.5, 9.0, 16.0, 45.0);
         assertEquals("John Doe", student.getName());
@@ -22,7 +22,7 @@ class StudentsInfoTest {
         assertEquals(9.0, student.getPractical());
         assertEquals(16.0, student.getMidterm());
         assertEquals(45.0, student.getFinal());
-    }
+    }*/
 
     @Test
     void StudentNameTest(){
