@@ -1,9 +1,6 @@
-import java.io.IOException;
-import java.util.ArrayList;
-
 public class Main {
     public static void main(String[] args) {
-        String filePath = "Sample.txt";
+        String filePath = "C:\\Users\\EES\\OneDrive\\Desktop\\Student_Grading_App\\Project_Testing\\Sample.txt";
             //arraylist of students info objects
             CourseInfo Course = FileReader.readFile(filePath);
 
@@ -24,6 +21,12 @@ public class Main {
                 System.out.println("Midterms: " + object.getMidterm());
                 System.out.println("Final: " + object.getFinal());
                 System.out.println();
+            }
+
+            for (StudentsInfo object : Course.Students) {
+                System.out.println("Name: " + object.getName());
+                System.out.println("ID: " + object.getID());
+                System.out.println(GradingCalculator.CalculateGrade(object));
             }
     }
 }
