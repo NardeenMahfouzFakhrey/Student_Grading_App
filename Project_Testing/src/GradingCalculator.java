@@ -1,3 +1,8 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+
 public class GradingCalculator {
 
     public String grade="";
@@ -76,8 +81,19 @@ public class GradingCalculator {
 
     @Override
     public String toString() {
-        return "grade='" + grade + '\'' +
-                ", gpaValue=" + gpaValue;
+        return grade +","+gpaValue+"\n";
+    }
+    public static void SaveGrade(ArrayList<StudentsInfo> studentsInfos) throws IOException {
+        FileWriter file = new FileWriter("output.txt");
+        BufferedWriter output = new BufferedWriter(file);
+
+        for (StudentsInfo object : studentsInfos) {
+            output.write(object.toString());
+            GradingCalculator g= GradingCalculator.CalculateGrade(object);
+           output.write(g.toString());
+        }
+
+        output.close();
     }
 }
 

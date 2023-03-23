@@ -136,4 +136,9 @@ public class StudentsInfo {
             throw new IllegalArgumentException("Final grade must be between 0 and 60");
         }
     }
+
+    @Override
+    public String toString() {
+        return   Name +","+ ID +",";
+    }
 }

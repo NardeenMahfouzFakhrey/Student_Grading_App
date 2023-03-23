@@ -1,5 +1,7 @@
+import java.io.IOException;
+
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         String filePath = "Sample.txt";
             //arraylist of students info objects
             CourseInfo Course = FileReader.readFile(filePath);
@@ -29,5 +31,7 @@ public class Main {
                 System.out.println("ID: " + object.getID());
                 System.out.println(GradingCalculator.CalculateGrade(object));
             }
+            GradingCalculator.SaveGrade(Course.Students);
+
     }
 }
