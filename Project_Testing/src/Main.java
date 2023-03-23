@@ -5,16 +5,16 @@ public class Main {
     public static void main(String[] args) {
         String filePath = "Sample.txt";
 
-            ArrayList<StudentsInfo> objects = FileReader.readFile(filePath);
+            CourseInfo Course = FileReader.readFile(filePath);
 
 
-            System.out.println("Name: " + FileReader.course.getName());
-            System.out.println("ID: " + FileReader.course.getCode());
-            System.out.println("Full Mark: " + FileReader.course.getFullMark());
+            System.out.println("Name: " + Course.getName());
+            System.out.println("ID: " + Course.getCode());
+            System.out.println("Full Mark: " + Course.getFullMark());
             System.out.println();
 
             // iterate over the list of objects and print their values
-            for (StudentsInfo object : objects) {
+            for (StudentsInfo object : Course.Students ) {
                 System.out.println("Name: " + object.getName());
                 System.out.println("ID: " + object.getID());
                 System.out.println("Activities: " + object.getActivities());

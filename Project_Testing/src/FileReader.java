@@ -5,10 +5,10 @@ import java.util.Scanner;
 
 public class FileReader {
 
-    public static CourseInfo course;
-    public static ArrayList<StudentsInfo> readFile(String filename) {
-        ArrayList<StudentsInfo> objects = new ArrayList<>();
 
+    public static CourseInfo readFile(String filename) {
+        ArrayList<StudentsInfo> objects = new ArrayList<>();
+        CourseInfo course = null;
         try {
             File file = new File(filename);
             Scanner scanner = new Scanner(file);
@@ -23,7 +23,7 @@ public class FileReader {
 
 
                 if (data.length == 6) {
-                    StudentsInfo object = new StudentsInfo(data[0], Double.parseDouble(data[1]), Double.parseDouble(data[2]), Double.parseDouble(data[3]), Double.parseDouble(data[4]), Double.parseDouble(data[5]));
+                    StudentsInfo object = new StudentsInfo(data[0], data[1], Double.parseDouble(data[2]), Double.parseDouble(data[3]), Double.parseDouble(data[4]), Double.parseDouble(data[5]));
                     objects.add(object);
                 }
             }
@@ -33,7 +33,8 @@ public class FileReader {
             e.printStackTrace();
         }
 
-        return objects;
+        course.setStudents(objects);
+        return course;
     }
 
 }
