@@ -1,6 +1,6 @@
 public class Main {
     public static void main(String[] args) {
-        String filePath = "C:\\Users\\EES\\OneDrive\\Desktop\\Student_Grading_App\\Project_Testing\\Sample.txt";
+        String filePath = "Sample.txt";
             //arraylist of students info objects
             CourseInfo Course = FileReader.readFile(filePath);
 
@@ -9,6 +9,7 @@ public class Main {
             System.out.println("ID: " + Course.getCode());
             System.out.println("Full Mark: " + Course.getFullMark());
             System.out.println();
+
             System.out.println("Moura and Bahaa were here");
             System.out.println();
 

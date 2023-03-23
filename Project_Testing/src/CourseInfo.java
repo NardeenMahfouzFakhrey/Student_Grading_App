@@ -22,12 +22,12 @@ public class CourseInfo {
         } else if (name.charAt(0)== ' ' && !name.matches("[a-zA-Z ]+")){
             throw new IllegalArgumentException(("String must be alphabetical characters and start with a letter."));
         }
-          else if(name.charAt(0)== ' '){
+        else if(name.charAt(0)== ' '){
             throw new IllegalArgumentException("String must start with a letter.");
         }else {
             throw new IllegalArgumentException("String must be alphabetical characters");
         }
-        if((code.length() == 6 && code.charAt(5) != 's' && code.matches("^[a-zA-Z0-9]*$") ) || (code.length() == 7 && code.charAt(6) == 's' && code.matches("^[a-zA-Z0-9]*$"))){
+        if((code.length() == 6 && code.matches("^[a-zA-Z]{3}\\d{3}$") )|| code.matches("^[a-zA-Z]{3}\\d{3}[sS]?$") ){
             Code = code;
         }else {
             throw new IllegalArgumentException("Subject code must be 6 or 7 Alphanumeric characters with letter[7] is s");
@@ -47,10 +47,15 @@ public class CourseInfo {
     }
 
     public void setName(String name) {
-        if (name.matches("[a-zA-Z]+")) {
+        if (name.matches("[a-zA-Z ]+") && name.charAt(0) != ' ') {
             Name = name;
-        } else {
-            throw new IllegalArgumentException("String must be alphabetical characters and start with a letter.");
+        } else if (name.charAt(0)== ' ' && !name.matches("[a-zA-Z ]+")){
+            throw new IllegalArgumentException(("String must be alphabetical characters and start with a letter."));
+        }
+        else if(name.charAt(0)== ' '){
+            throw new IllegalArgumentException("String must start with a letter.");
+        }else {
+            throw new IllegalArgumentException("String must be alphabetical characters");
         }
     }
 
@@ -59,7 +64,7 @@ public class CourseInfo {
     }
 
     public void setCode(String code) {
-        if((code.length() == 6 && code.charAt(5) != 's' && code.matches("^[a-zA-Z0-9]*$") ) || (code.length() == 7 && code.charAt(6) == 's' && code.matches("^[a-zA-Z0-9]*$"))){
+        if((code.length() == 6 && code.matches("^[a-zA-Z]{3}\\d{3}$") )|| code.matches("^[a-zA-Z]{3}\\d{3}[sS]?$") ){
             Code = code;
         }else {
             throw new IllegalArgumentException("Subject code must be 6 or 7 Alphanumeric characters with letter[7] is s");
