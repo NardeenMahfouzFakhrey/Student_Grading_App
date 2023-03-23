@@ -4,7 +4,7 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
         String filePath = "Sample.txt";
-
+            //arraylist of students info objects
             CourseInfo Course = FileReader.readFile(filePath);
 
 
@@ -12,6 +12,7 @@ public class Main {
             System.out.println("ID: " + Course.getCode());
             System.out.println("Full Mark: " + Course.getFullMark());
             System.out.println();
+            System.out.println("Moura and Bahaa were here");
 
             // iterate over the list of objects and print their values
             for (StudentsInfo object : Course.Students) {
