@@ -55,6 +55,7 @@ public class CourseInfoTest {
         assertEquals("Physics", course.getName());
         course.setName("Advanced Programming");
         assertEquals("Advanced Programming", course.getName());
+        // Test setName method with invalid input
         Assertions.assertThrows(IllegalArgumentException.class, () -> course.setName(" Physics"));
         Assertions.assertThrows(IllegalArgumentException.class, () -> course.setName(" Advanced Programming"));
         Assertions.assertThrows(IllegalArgumentException.class, () -> course.setName("Physics1"));
@@ -71,6 +72,7 @@ public class CourseInfoTest {
         assertEquals("PHY001", course.getCode());
         course.setCode("PHY001s");
         assertEquals("PHY001s", course.getCode());
+        // Test setCode method with invalid input
         Assertions.assertThrows(IllegalArgumentException.class, () -> course.setCode("PHY00"));
         Assertions.assertThrows(IllegalArgumentException.class, () -> course.setCode("PHY001a"));
         Assertions.assertThrows(IllegalArgumentException.class, () -> course.setCode("PH6001a"));
@@ -80,8 +82,10 @@ public class CourseInfoTest {
 
     @Test
     void FullMarkTest(){
+        // // Test setFullMark method with valid input
         course.setFullMark(100);
         assertEquals(100, course.getFullMark());
+        // Test setFullMark method with invalid input
         Assertions.assertThrows(IllegalArgumentException.class, () -> course.setFullMark(30));
         Assertions.assertThrows(IllegalArgumentException.class, () -> course.setFullMark(120));
     }

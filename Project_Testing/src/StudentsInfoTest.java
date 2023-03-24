@@ -16,6 +16,7 @@ class StudentsInfoTest {
     }
     @Test
     void testConstructor() {
+        // Test constructor with valid inputs
         StudentsInfo student = new StudentsInfo("John Doe", "1234567p", 8.5, 9.0, 16.0, 45.0);
         assertEquals("John Doe", student.getName());
         assertEquals("1234567p", student.getID());
@@ -23,6 +24,7 @@ class StudentsInfoTest {
         assertEquals(9.0, student.getPractical());
         assertEquals(16.0, student.getMidterm());
         assertEquals(45.0, student.getFinal());
+        // Test constructor with invalid inputs
         Assertions.assertThrows(IllegalArgumentException.class, ()-> new StudentsInfo(" John Doe", "1234567p", 8.5, 9.0, 16.0, 45.0));
         Assertions.assertThrows(IllegalArgumentException.class, ()-> new StudentsInfo("123", "1234567p", 8.5, 9.0, 16.0, 45.0));
         Assertions.assertThrows(IllegalArgumentException.class, ()-> new StudentsInfo("John Doe", "123456xp", 8.5, 9.0, 16.0, 45.0));
@@ -40,10 +42,12 @@ class StudentsInfoTest {
 
     @Test
     void StudentNameTest(){
+        // Test setName method with valid input
         student.setName("John");
         assertEquals("John",student.getName());
         student.setName("John Miller");
         assertEquals("John Miller",student.getName());
+        // Test setName method with invalid input
         Assertions.assertThrows(IllegalArgumentException.class, () -> student.setName(" John"));
         Assertions.assertThrows(IllegalArgumentException.class, () -> student.setName(" John Miller"));
         Assertions.assertThrows(IllegalArgumentException.class, () -> student.setName("John1"));
@@ -53,11 +57,14 @@ class StudentsInfoTest {
     }
     @Test
     void IDTest() {
+        // Test setID method with valid input
         StudentsInfo student = new StudentsInfo();
         student.setID("87654321");
         assertEquals("87654321", student.getID());
         student.setID("1234567s");
         assertEquals("1234567s", student.getID());
+        // Test setID method with invalid input
+        assertThrows(IllegalArgumentException.class, () -> student.setID("1234567s"));
         assertThrows(IllegalArgumentException.class, () -> student.setID("123"));
         assertThrows(IllegalArgumentException.class, () -> student.setID(" 12345"));
         assertThrows(IllegalArgumentException.class, () -> student.setID("123456ss"));
@@ -68,6 +75,7 @@ class StudentsInfoTest {
     }
     @Test
     void ActivitiesTest(){
+        // Test setActivities method with valid input
         student.setActivities(10);
         assertEquals(10, student.getActivities());
         student.setActivities(0);
@@ -76,11 +84,13 @@ class StudentsInfoTest {
         assertEquals(5.5, student.getActivities());
         student.setActivities(9.99);
         assertEquals(9.99, student.getActivities());
+        // Test setActivities method with invalid input
         assertThrows(IllegalArgumentException.class, () -> student.setActivities(100));
         assertThrows(IllegalArgumentException.class, () -> student.setActivities(-10));
     }
     @Test
     void MidtermTest(){
+        // Test setMidterm method with valid input
         student.setMidterm(20.0);
         assertEquals(20.0, student.getMidterm());
         student.setMidterm(0);
@@ -89,18 +99,38 @@ class StudentsInfoTest {
         assertEquals(3.8, student.getMidterm());
         student.setMidterm(17.5);
         assertEquals(17.5, student.getMidterm());
+        // Test setMidterm method with invalid input
         assertThrows(IllegalArgumentException.class, () -> student.setMidterm(100));
         assertThrows(IllegalArgumentException.class, () -> student.setMidterm(-1));
     }
     @Test
     void FinalTest(){
+        // Test setFinal method with valid input
         student.setFinal(60.0);
         assertEquals(60.0, student.getFinal());
         student.setFinal(35.5);
         assertEquals(35.5, student.getFinal());
         student.setFinal(0);
         assertEquals(0, student.getFinal());
+        // Test setFinal method with invalid input
         assertThrows(IllegalArgumentException.class, () -> student.setFinal(-20));
         assertThrows(IllegalArgumentException.class, () -> student.setFinal(61));
+    }
+
+    @Test
+    public void testToString() {
+        StudentsInfo student = new StudentsInfo("John Doe", "01234567",10,7,13,56);
+
+
+        String expectedOutput = "StudentsInfo{" +
+                "Name='John Doe', " +
+                "ID='01234567', " +
+                "Activities=10.0, " +
+                "Practical=7.0, " +
+                "Midterm=13.0, " +
+                "Final=56.0" +
+                "}";
+
+        assertEquals(expectedOutput, student.toString());
     }
 }

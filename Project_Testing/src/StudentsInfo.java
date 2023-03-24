@@ -139,6 +139,13 @@ public class StudentsInfo {
 
     @Override
     public String toString() {
-        return   Name +","+ ID +",";
+        return "StudentsInfo{" +
+                "Name='" + Name + '\'' +
+                ", ID='" + ID + '\'' +
+                ", Activities=" + Activities +
+                ", Practical=" + Practical +
+                ", Midterm=" + Midterm +
+                ", Final=" + Final +
+                '}';
     }
 }
