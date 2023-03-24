@@ -17,7 +17,7 @@ class StudentsInfoTest {
     @Test
     void testConstructor() {
         // Test constructor with valid inputs
-        StudentsInfo student = new StudentsInfo("John Doe", "1234567p", 8.5, 9.0, 16.0, 45.0);
+        student = new StudentsInfo("John Doe", "1234567p", 8.5, 9.0, 16.0, 45.0);
         assertEquals("John Doe", student.getName());
         assertEquals("1234567p", student.getID());
         assertEquals(8.5, student.getActivities());
@@ -58,7 +58,6 @@ class StudentsInfoTest {
     @Test
     void IDTest() {
         // Test setID method with valid input
-        StudentsInfo student = new StudentsInfo();
         student.setID("87654321");
         assertEquals("87654321", student.getID());
         student.setID("1234567s");
@@ -123,6 +122,7 @@ class StudentsInfoTest {
     @Test
     void FinalTest(){
         // Test setFinal method with valid input
+        student = new StudentsInfo();
         student.setFinal(60.0);
         assertEquals(60.0, student.getFinal());
         student.setFinal(35.5);
@@ -136,7 +136,7 @@ class StudentsInfoTest {
 
     @Test
     public void testToString() {
-        StudentsInfo student = new StudentsInfo("John Doe", "01234567",10,7,13,56);
+        student = new StudentsInfo("John Doe", "01234567",10,7,13,56);
 
         String expectedOutput = "StudentsInfo{" +
                 "Name='John Doe', " +
