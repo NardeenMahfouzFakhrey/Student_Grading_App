@@ -2,14 +2,16 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class GradingCalculator {
 
     public String grade="";
     public double gpaValue=0;
 
-    public static GradingCalculator CalculateGrade(StudentsInfo student) {
-        double totalDegree = TotalSummation(student);
+    public static GradingCalculator CalculateGrade( double Activities,double Practical,double Midterm,double Final) {
+        double totalDegree = TotalSummation(Activities,Practical, Midterm,Final);
         GradingCalculator gradingCalculator = new GradingCalculator();
 
         if (totalDegree > 100) {
@@ -59,8 +61,21 @@ public class GradingCalculator {
         return gradingCalculator;
     }
 
-    public static double TotalSummation(StudentsInfo student) {
-        return student.getPractical() + student.getActivities() + student.getMidterm() + student.getFinal();
+    public static double TotalSummation( double activities,double practical,double midterm,double afinal) {
+        if (! (midterm >=0 && midterm <=20)) {
+            throw new IllegalArgumentException("Midterm grade must be between 0 and 20");
+        }
+        if (! (practical >= 0 && practical <= 10 )) {
+            throw new IllegalArgumentException("Practical grade must be between 0 and 10");
+        }
+        if (!(activities >= 0 && activities <= 10)) {
+            throw new IllegalArgumentException("Activities grade must be between 0 and 10");
+        }
+        if (! (afinal >=0 && afinal <=60)) {
+            throw new IllegalArgumentException("Final grade must be between 0 and 60");
+        }
+
+        return activities+practical+midterm+afinal;
     }
 
     public String getGrade() {
@@ -68,7 +83,12 @@ public class GradingCalculator {
     }
 
     public void setGrade(String grade) {
-        this.grade = grade;
+        String[] grades = new String[]{ "A+", "A", "A-", "B+", "B" , "B-", "C+" , "C" , "C-" , "D+" , "D" , "F"};
+        List<String> Grades = new ArrayList<>(Arrays.asList(grades));
+        if(!Grades.contains(grade)) {
+            throw  new IllegalArgumentException("inValid GPA Value");
+        }
+        else this.grade = grade;
     }
 
     public double getGpaValue() {
@@ -76,7 +96,11 @@ public class GradingCalculator {
     }
 
     public void setGpaValue(double gpaValue) {
-        this.gpaValue = gpaValue;
+         Double [] gpaValues= new Double[] {1.0,1.3,1.7,2.0,2.3,3.0,3.3,3.7,4.0};
+        List<Double> GPAList = new ArrayList<Double>(Arrays.<Double>asList(gpaValues));
+        if(!GPAList.contains(gpaValue) )
+        {throw new IllegalArgumentException("InValid GPA Number");}
+        else this.gpaValue = gpaValue;
     }
 
     @Override
@@ -89,7 +113,7 @@ public class GradingCalculator {
 
         for (StudentsInfo object : studentsInfos) {
             output.write(object.toString());
-            GradingCalculator g= GradingCalculator.CalculateGrade(object);
+            GradingCalculator g= GradingCalculator.CalculateGrade(object.Activities ,object.Practical , object.Midterm , object.Final);
            output.write(g.toString());
         }
 

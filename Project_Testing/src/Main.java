@@ -29,7 +29,7 @@ public class Main {
             for (StudentsInfo object : Course.Students) {
                 System.out.println("Name: " + object.getName());
                 System.out.println("ID: " + object.getID());
-                System.out.println(GradingCalculator.CalculateGrade(object));
+                System.out.println(GradingCalculator.CalculateGrade(object.Activities ,object.Practical , object.Midterm , object.Final));
             }
             GradingCalculator.SaveGrade(Course.Students);
 
