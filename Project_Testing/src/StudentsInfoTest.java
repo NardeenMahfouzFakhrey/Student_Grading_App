@@ -89,6 +89,23 @@ class StudentsInfoTest {
         assertThrows(IllegalArgumentException.class, () -> student.setActivities(-10));
     }
     @Test
+    void PracticalTest(){
+        // Test setPractical method with valid input
+        student.setPractical(10);
+        assertEquals(10, student.getPractical());
+        student.setPractical(0);
+        assertEquals(0, student.getPractical());
+        student.setPractical(7.8);
+        assertEquals(7.8, student.getPractical());
+        student.setPractical(3.5);
+        assertEquals(3.5, student.getPractical());
+        // Test of setPractical method with invalid input
+        assertThrows(IllegalArgumentException.class, () -> student.setPractical(11));
+        assertThrows(IllegalArgumentException.class, () -> student.setPractical(-1));
+    }
+
+
+    @Test
     void MidtermTest(){
         // Test setMidterm method with valid input
         student.setMidterm(20.0);
@@ -120,7 +137,6 @@ class StudentsInfoTest {
     @Test
     public void testToString() {
         StudentsInfo student = new StudentsInfo("John Doe", "01234567",10,7,13,56);
-
 
         String expectedOutput = "StudentsInfo{" +
                 "Name='John Doe', " +
