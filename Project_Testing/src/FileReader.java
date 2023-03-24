@@ -30,7 +30,7 @@ public class FileReader {
 
             scanner.close();
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
         }
 
         course.setStudents(objects);

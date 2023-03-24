@@ -2,7 +2,7 @@ import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        String filePath = "Sample.txt";
+        String filePath = "Project_Testing/Sample.txt";
             //arraylist of students info objects
             CourseInfo Course = FileReader.readFile(filePath);
 
