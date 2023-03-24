@@ -11,7 +11,7 @@ public class FileReaderTest {
     @Test
     void readFile() {
 
-        courseInfo = FileReader.readFile("Project_Testing/FileReaderTest.txt");
+        courseInfo = FileReader.readFile("FileReaderTest.txt");
         assertEquals("Math", courseInfo.getName());
         assertEquals("PHM123s", courseInfo.getCode());
         assertEquals(100, courseInfo.getFullMark());
@@ -35,7 +35,7 @@ public class FileReaderTest {
         });
 
         assertThrows(NoSuchElementException.class, () -> {
-            FileReader.readFile("Project_Testing/EmptyFile.txt");
+            FileReader.readFile("EmptyFile.txt");
         });
 
 
