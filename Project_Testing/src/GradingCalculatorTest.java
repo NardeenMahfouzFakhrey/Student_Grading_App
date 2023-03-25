@@ -1,3 +1,8 @@
+import java.util.ArrayList;
+import java.io.FileReader;
+import java.io.BufferedReader;
+import java.io.IOException;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -196,13 +201,15 @@ class GradingCalculatorTest {
 
     @Test
     void testGetGrade(){
-
+        GradingCalculator grader = new GradingCalculator();
+        grader = GradingCalculator.CalculateGrade(object.Activities ,object.Practical , object.Midterm , object.Final);
+        assertEquals("A+",grader.getGrade());
     }
 
     @Test
     void testSetGrade(){
-        GradingCalculator grader = new GradingCalculator();
         Exception exception;
+        GradingCalculator grader = new GradingCalculator();
 
         //test setGrade with invalid grades
         exception = assertThrows(IllegalArgumentException.class, () -> {
@@ -222,7 +229,9 @@ class GradingCalculatorTest {
 
     @Test
     void TestGetGpaValue(){
-
+        GradingCalculator grader = new GradingCalculator();
+        grader = GradingCalculator.CalculateGrade(object.Activities ,object.Practical , object.Midterm , object.Final);
+        assertEquals(4,grader.getGpaValue());
     }
 
     @Test
@@ -247,10 +256,40 @@ class GradingCalculatorTest {
     }
 
     @Test
-    void testToString(){}
+    void testToString(){
+        GradingCalculator grader = new GradingCalculator();
+        grader = GradingCalculator.CalculateGrade(object.Activities ,object.Practical , object.Midterm , object.Final);
+        assertEquals(grader.grade +","+grader.gpaValue+"\n", grader.toString());
+    }
 
     @Test
-    void testSaveGrade(){}
+    void testSaveGrade() throws IOException{
+
+        BufferedReader reader = new BufferedReader(new FileReader("output.txt"));
+
+        StudentsInfo obj1 = new StudentsInfo("Nardeen", "12345700", 8, 10, 16.5, 50);
+        StudentsInfo obj2 = new StudentsInfo("Karine", "12345690", 10, 10, 18, 40);
+        StudentsInfo obj3 = new StudentsInfo("Bahaa", "12345695", 9, 10, 18, 60);
+        StudentsInfo obj4 = new StudentsInfo("Moura", "12345600", 10, 8, 14, 55);
+        StudentsInfo obj5 = new StudentsInfo("Tantawy", "12345676", 5, 5, 15, 40);
+        ArrayList<StudentsInfo> studentsInfos = new ArrayList<StudentsInfo>();
+        GradingCalculator grader;
+        StudentsInfo student;
+
+        studentsInfos.add(obj1);
+        studentsInfos.add(obj2);
+        studentsInfos.add(obj3);
+        studentsInfos.add(obj4);
+        studentsInfos.add(obj5);
+        GradingCalculator.SaveGrade(studentsInfos);
+
+        for(int i=0; i<studentsInfos.size(); i++){
+            String line = reader.readLine();
+            student = studentsInfos.get(i);
+            grader = GradingCalculator.CalculateGrade(student.Activities,student.Practical,student.Midterm,student.Final);
+            assertEquals(student.Name+","+student.ID+","+grader.toString(),line.toString()+"\n");
+        }
+    }
 
 
 

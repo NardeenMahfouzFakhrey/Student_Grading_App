@@ -1,3 +1,0 @@
-StudentsInfo{Name='Mariam', ID='12345679', Activities=9.0, Practical=7.0, Midterm=20.0, Final=45.0}B,3.0
-StudentsInfo{Name='George', ID='12345770', Activities=8.0, Practical=9.0, Midterm=19.0, Final=59.0}A,4.0
-StudentsInfo{Name='Nedo', ID='12345670', Activities=10.0, Practical=10.0, Midterm=20.0, Final=60.0}A+,4.0

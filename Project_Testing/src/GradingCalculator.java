@@ -14,13 +14,7 @@ public class GradingCalculator {
         double totalDegree = TotalSummation(Activities,Practical, Midterm,Final);
         GradingCalculator gradingCalculator = new GradingCalculator();
 
-        if (totalDegree > 100) {
-            gradingCalculator.grade = "invalid";
-            throw new IllegalArgumentException("The total Degree must be equal 100 or less");
-        } else if (totalDegree < 0) {
-            gradingCalculator.grade = "invalid";
-            throw new IllegalArgumentException("The total Degree must be Positive Number");
-        } else if (totalDegree >= 97 && totalDegree <= 100) {
+        if (totalDegree >= 97 && totalDegree <= 100) {
             gradingCalculator.grade = "A+";
             gradingCalculator.gpaValue = 4;
         } else if (totalDegree >= 93 && totalDegree < 97) {
@@ -112,7 +106,7 @@ public class GradingCalculator {
         BufferedWriter output = new BufferedWriter(file);
 
         for (StudentsInfo object : studentsInfos) {
-            output.write(object.toString());
+            output.write(object.Name+","+object.ID+",");
             GradingCalculator g= GradingCalculator.CalculateGrade(object.Activities ,object.Practical , object.Midterm , object.Final);
            output.write(g.toString());
         }
