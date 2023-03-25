@@ -26,33 +26,54 @@ class StudentsInfoTest {
         assertEquals(16.0, student.getMidterm());
         assertEquals(45.0, student.getFinal());
         // Test constructor with invalid inputs
-        exception = assertThrows(IllegalArgumentException.class, ()-> new StudentsInfo(" John Doe", "1234567p", 8.5, 9.0, 16.0, 45.0));
+        //Invalid Student name
+        exception = assertThrows(IllegalArgumentException.class, ()->
+                new StudentsInfo(" John Doe", "1234567p", 8.5, 9.0, 16.0, 45.0));
         assertEquals(exception.getMessage(), "String must start with a letter.");
-        exception = assertThrows(IllegalArgumentException.class, ()-> new StudentsInfo("123", "1234567p", 8.5, 9.0, 16.0, 45.0));
+        exception = assertThrows(IllegalArgumentException.class, ()->
+                new StudentsInfo("123", "1234567p", 8.5, 9.0, 16.0, 45.0));
         assertEquals(exception.getMessage(), "String must be alphabetical characters");
-        exception = assertThrows(IllegalArgumentException.class, ()-> new StudentsInfo(" John123", "2234567p", 8.5, 9.0, 16.0, 45.0));
+        exception = assertThrows(IllegalArgumentException.class, ()->
+                new StudentsInfo(" John123", "2234567p", 8.5, 9.0, 16.0, 45.0));
         assertEquals(exception.getMessage(), "String must be alphabetical characters and start with a letter.");
-        exception = assertThrows(IllegalArgumentException.class, ()-> new StudentsInfo("John Doe", "123456xp", 8.5, 9.0, 16.0, 45.0));
+        //Invalid student ID
+        exception = assertThrows(IllegalArgumentException.class, ()->
+                new StudentsInfo("John Doe", "123456xp", 8.5, 9.0, 16.0, 45.0));
         assertEquals(exception.getMessage(), "Student ID must contain 8 digits where all digits are numeric or last digit only is alphabetic character");
-        exception = assertThrows(IllegalArgumentException.class, ()-> new StudentsInfo("John Doe", "123453p", 8.5, 9.0, 16.0, 45.0));
+        exception = assertThrows(IllegalArgumentException.class, ()->
+                new StudentsInfo("John Doe", "123453p", 8.5, 9.0, 16.0, 45.0));
         assertEquals(exception.getMessage(), "Student ID must contain 8 digits where all digits are numeric or last digit only is alphabetic character");
-        exception = assertThrows(IllegalArgumentException.class, ()-> new StudentsInfo("John Doe", "1234537p", -10, 9.0, 16.0, 45.0));
+        //invalid Activites grade
+        exception = assertThrows(IllegalArgumentException.class, ()->
+                new StudentsInfo("John Doe", "1234537p", -10, 9.0, 16.0, 45.0));
         assertEquals(exception.getMessage(), "Activities grade must be between 0 and 10");
-        exception = assertThrows(IllegalArgumentException.class, ()-> new StudentsInfo("John Doe", "1234547p", 12, 9.0, 16.0, 45.0));
+        exception = assertThrows(IllegalArgumentException.class, ()->
+                new StudentsInfo("John Doe", "1234547p", 12, 9.0, 16.0, 45.0));
         assertEquals(exception.getMessage(), "Activities grade must be between 0 and 10");
-        exception = assertThrows(IllegalArgumentException.class, ()-> new StudentsInfo("John Doe", "1234517p", 8.5, 20, 16.0, 45.0));
+        //invalid Practical grade
+        exception = assertThrows(IllegalArgumentException.class, ()->
+                new StudentsInfo("John Doe", "1234517p", 8.5, 20, 16.0, 45.0));
         assertEquals(exception.getMessage(), "Practical grade must be between 0 and 10");
-        exception = assertThrows(IllegalArgumentException.class, ()-> new StudentsInfo("John Doe", "1234267p", 8.5, -1, 16.0, 45.0));
+        exception = assertThrows(IllegalArgumentException.class, ()->
+                new StudentsInfo("John Doe", "1234267p", 8.5, -1, 16.0, 45.0));
         assertEquals(exception.getMessage(), "Practical grade must be between 0 and 10");
-        exception = assertThrows(IllegalArgumentException.class, ()-> new StudentsInfo("John Doe", "1234367p", 8.5, 9.0, 25.0, 45.0));
+        //invalid Midterm grade
+        exception = assertThrows(IllegalArgumentException.class, ()->
+                new StudentsInfo("John Doe", "1234367p", 8.5, 9.0, 25.0, 45.0));
         assertEquals(exception.getMessage(), "Midterm grade must be between 0 and 20");
-        exception = assertThrows(IllegalArgumentException.class, ()-> new StudentsInfo("John Doe", "1234767p", 8.5, 9.0, -10, 45.0));
+        exception = assertThrows(IllegalArgumentException.class, ()->
+                new StudentsInfo("John Doe", "1234767p", 8.5, 9.0, -10, 45.0));
         assertEquals(exception.getMessage(), "Midterm grade must be between 0 and 20");
-        exception = assertThrows(IllegalArgumentException.class, ()-> new StudentsInfo("John Doe", "7234067p", 8.5, 9.0, 16.0, 100.0));
+        //invalid Final grade
+        exception = assertThrows(IllegalArgumentException.class, ()->
+                new StudentsInfo("John Doe", "7234067p", 8.5, 9.0, 16.0, 100.0));
         assertEquals(exception.getMessage(), "Final grade must be between 0 and 60");
-        exception = assertThrows(IllegalArgumentException.class, ()-> new StudentsInfo("John Doe", "8234267p", 8.5, 9.0, 16.0, -60));
+        exception = assertThrows(IllegalArgumentException.class, ()->
+                new StudentsInfo("John Doe", "8234267p", 8.5, 9.0, 16.0, -60));
         assertEquals(exception.getMessage(), "Final grade must be between 0 and 60");
-        Assertions.assertThrows(IllegalArgumentException.class, ()-> new StudentsInfo(" John 1Doe", "1224567p", -10, 20.0, -1, 100));
+
+        Assertions.assertThrows(IllegalArgumentException.class, ()->
+                new StudentsInfo(" John 1Doe", "1224567p", -10, 20.0, -1, 100));
     }
 
     @Test
