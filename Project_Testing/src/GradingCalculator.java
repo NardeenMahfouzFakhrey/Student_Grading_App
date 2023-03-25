@@ -86,7 +86,7 @@ public class GradingCalculator {
         String[] grades = new String[]{ "A+", "A", "A-", "B+", "B" , "B-", "C+" , "C" , "C-" , "D+" , "D" , "F"};
         List<String> Grades = new ArrayList<>(Arrays.asList(grades));
         if(!Grades.contains(grade)) {
-            throw  new IllegalArgumentException("inValid GPA Value");
+            throw  new IllegalArgumentException("InValid GPA Grade");
         }
         else this.grade = grade;
     }
@@ -99,7 +99,7 @@ public class GradingCalculator {
          Double [] gpaValues= new Double[] {1.0,1.3,1.7,2.0,2.3,3.0,3.3,3.7,4.0};
         List<Double> GPAList = new ArrayList<Double>(Arrays.<Double>asList(gpaValues));
         if(!GPAList.contains(gpaValue) )
-        {throw new IllegalArgumentException("InValid GPA Number");}
+        {throw new IllegalArgumentException("InValid GPA Value");}
         else this.gpaValue = gpaValue;
     }
 
