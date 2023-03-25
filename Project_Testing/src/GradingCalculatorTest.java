@@ -8,6 +8,7 @@ class GradingCalculatorTest {
 
     @BeforeEach
     void setUp(){
+        StudentsInfo.usedIDs.clear();
         object = new StudentsInfo("Nardeen", "12345678", 10.0, 10.0, 20.0, 60.0);
     }
 

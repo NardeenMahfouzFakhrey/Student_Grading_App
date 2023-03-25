@@ -43,7 +43,13 @@ class StudentsInfoTest {
         exception = assertThrows(IllegalArgumentException.class, ()->
                 new StudentsInfo("John Doe", "123453p", 8.5, 9.0, 16.0, 45.0));
         assertEquals(exception.getMessage(), "Student ID must contain 8 digits where all digits are numeric or last digit only is alphabetic character");
-        //invalid Activites grade
+        exception = assertThrows(IllegalArgumentException.class, ()->
+                new StudentsInfo("John Doe", "123453p", 8.5, 9.0, 16.0, 45.0));
+        assertEquals(exception.getMessage(), "Student ID must contain 8 digits where all digits are numeric or last digit only is alphabetic character");
+        exception = assertThrows(IllegalArgumentException.class, ()->
+                new StudentsInfo("John Doe", "1234567p", 8.5, 9.0, 16.0, 45.0));
+        assertEquals(exception.getMessage(), "Student ID must be unique");
+        //invalid Activities grade
         exception = assertThrows(IllegalArgumentException.class, ()->
                 new StudentsInfo("John Doe", "1234537p", -10, 9.0, 16.0, 45.0));
         assertEquals(exception.getMessage(), "Activities grade must be between 0 and 10");
