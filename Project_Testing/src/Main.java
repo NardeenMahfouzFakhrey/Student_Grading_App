@@ -6,13 +6,9 @@ public class Main {
             //arraylist of students info objects
             CourseInfo Course = FileReader.readFile(filePath);
 
-
             System.out.println("Name: " + Course.getName());
             System.out.println("ID: " + Course.getCode());
             System.out.println("Full Mark: " + Course.getFullMark());
-            System.out.println();
-
-            System.out.println("Moura and Bahaa were here");
             System.out.println();
 
             // iterate over the list of objects and print their values
@@ -26,6 +22,7 @@ public class Main {
                 System.out.println();
             }
 
+          //calculate each student grade
             for (StudentsInfo object : Course.Students) {
                 System.out.println("Name: " + object.getName());
                 System.out.println("ID: " + object.getID());
