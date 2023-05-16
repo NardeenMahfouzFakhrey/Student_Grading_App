@@ -13,16 +13,24 @@ class GradingCalculatorWhiteBoxTesting {
     Exception exception;
 
     /* Statement Coverage Test Cases for setGrade Module */
-    @Test
-    void setGradeStatementCoverage(){
 
+    @Test
+    void setGradeStatementCoverage_Test1(){
+        /* Set An Invalid Grade */
         exception = assertThrows(IllegalArgumentException.class, () -> {
             gradingCalculator.setGrade("K+");
         });
         assertEquals(exception.getMessage(), "InValid GPA Grade");
 
+    }
+
+
+    @Test
+    void setGradeStatementCoverage_Test2(){
+
+        /* Set A Valid Grade */
         gradingCalculator.setGrade("A+");
-        assertEquals(gradingCalculator.getGrade(), "A+");
+            assertEquals(gradingCalculator.getGrade(), "A+");
 
     }
 
