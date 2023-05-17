@@ -2,7 +2,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class GradingCalculatorWhiteBoxTesting {
+class GradingCalculatorWhiteBoxTest {
 
     GradingCalculator gradingCalculator = new GradingCalculator();
     double activities;
