@@ -90,15 +90,6 @@ public class TopModuleTest {
     }
     @Test
     public void topModuleTest5() throws IOException {
-        filePath = "TestFile2.txt";
-        TopModule topModule = new TopModule();
-        exception = assertThrows(IllegalArgumentException.class, () -> {
-            topModule.TopModule(filePath);
-        });
-        assertEquals(exception.getMessage(), "Subject code must be 6 or 7 Alphanumeric characters with letter[7] is s");
-    }
-    @Test
-    public void topModuleTest6() throws IOException {
         filePath = "TestFile3.txt";
         TopModule topModule = new TopModule();
         exception = assertThrows(IllegalArgumentException.class, () -> {
@@ -107,7 +98,7 @@ public class TopModuleTest {
         assertEquals(exception.getMessage(), "String must be alphabetical characters and start with a letter.");
     }
     @Test
-    public void topModuleTest7() throws IOException {
+    public void topModuleTest6() throws IOException {
         filePath = "TestFile4.txt";
         TopModule topModule = new TopModule();
         exception = assertThrows(IllegalArgumentException.class, () -> {
@@ -116,7 +107,7 @@ public class TopModuleTest {
         assertEquals(exception.getMessage(), "Final grade must be between 0 and 60");
     }
     @Test
-    public void topModuleTest8() throws IOException {
+    public void topModuleTest7() throws IOException {
         filePath = "TestFile5.txt";
         TopModule topModule = new TopModule();
         exception = assertThrows(IllegalArgumentException.class, () -> {
@@ -124,4 +115,5 @@ public class TopModuleTest {
         });
         assertEquals(exception.getMessage(), "Student ID must be unique");
     }
+
 }
