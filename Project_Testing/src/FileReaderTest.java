@@ -5,7 +5,6 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 
 public class  FileReaderTest {
-
     CourseInfo courseInfo;
 
     @Test

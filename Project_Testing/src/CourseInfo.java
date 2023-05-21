@@ -27,7 +27,7 @@ public class CourseInfo {
         }else {
             throw new IllegalArgumentException("String must be alphabetical characters");
         }
-        if((code.length() == 6 && code.matches("^[a-zA-Z]{3}\\d{3}$") )|| code.matches("^[a-zA-Z]{3}\\d{3}[sS]?$") ){
+        if((code.length() == 6 && code.matches("^[a-zA-Z]{3}\\d{3}$") )|| code.matches("^[a-zA-Z]{3}\\d{3}[s]?$") ){
             Code = code;
         }else {
             throw new IllegalArgumentException("Subject code must be 6 or 7 Alphanumeric characters with letter[7] is s");

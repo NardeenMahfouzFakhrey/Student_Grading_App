@@ -115,5 +115,4 @@ public class TopModuleTest {
         });
         assertEquals(exception.getMessage(), "Student ID must be unique");
     }
-
 }

@@ -56,7 +56,6 @@ class GradingCalculatorWhiteBoxTest {
         assertEquals("A", gradingCalculator.getGrade());
         assertEquals(4, gradingCalculator.getGpaValue());
 
-
     }
 
     @Test
